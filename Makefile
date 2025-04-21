@@ -39,7 +39,11 @@ clean:
 
 # Format all files
 fmt:
-	@clang-format -i src/*
-	@echo "\033[1;33mFormatted all files in $(SRC_DIR)\033[0m"
+	@clang-format -i src/*cpp
+	@echo "\033[1;33mFormatted all CPP files in $(SRC_DIR)\033[0m"
+	@go fmt src/*go
+	@echo "\033[1;33mFormatted all Go files in $(SRC_DIR)\033[0m"
+	@python3 -m ruff format src/*py
+	@echo "\033[1;33mFormatted all Python files in $(SRC_DIR)\033[0m"
 
 .PHONY: all build clean fmt test

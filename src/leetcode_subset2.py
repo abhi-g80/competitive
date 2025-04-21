@@ -1,4 +1,4 @@
-#https:  // leetcode.com/problems/subsets-ii/
+# https:  // leetcode.com/problems/subsets-ii/
 from typing import List, Tuple
 
 
@@ -10,7 +10,7 @@ class Solution:
         for i in range(2**n):
             ans = []
             for j in range(n):
-                if i & (1<<j):
+                if i & (1 << j):
                     ans.append(nums[j])
             result.add(tuple(ans))
         return list(result)
