@@ -6,18 +6,15 @@
 
 package main
 
-import (
-    "fmt"
-)
+import("fmt")
 
-func main() {
-    tests := []int{4,3,2,3}
+    func main() {
+tests:
+    = [] int { 4, 3, 2, 3 }
 
-    if stoneGame(tests) == true  {
+      if stoneGame (tests) == true {
         fmt.Println("ok")
     }
 }
 
-func stoneGame(piles []int) bool {
-    return true
-}
+func stoneGame(piles[] int) bool { return true }

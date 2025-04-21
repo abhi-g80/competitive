@@ -1,14 +1,14 @@
-# push dominoes
-# https://leetcode.com/problems/push-dominoes/
+#push dominoes
+#https:  // leetcode.com/problems/push-dominoes/
 #
-# Analysis
-# --------
+#Analysis
+#-- -- -- --
 #
-# case 1. L...L or R...R make all dots the same
-# case 2. L...R don't do anything with dots
-# case 3. R...L odd number of dots in between, leave middle one make left R and right L
-# case 4. R....L even number of dots in between, half on left R and half on right L
-# case 5. ..L or R.. at the end, make all dots L or R respectively
+#case 1. L... L or R... R make all dots the same
+#case 2. L... R don't do anything with dots
+#case 3. R... L odd number of dots in between, leave middle one make left R and right L
+#case 4. R....L even number of dots in between, half on left R and half on right L
+#case 5. ..L or R..at the end, make all dots L or R respectively
 
 class Solution:
     def push_dominoes(self, dominoes: str) -> str:
