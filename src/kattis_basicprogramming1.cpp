@@ -31,19 +31,19 @@ void solve() {
             break;
         case 5:
             // for(int i = 0; i < nums.size() && ((nums[i] % 2) == 0); i++) sum += nums[i];
-            for (int i = 0; i < nums.size(); i++) {
+            for (uint64_t i = 0; i < nums.size(); i++) {
                 if ((nums[i] & 2) == 0) sum += nums[i];
             }
             cout << sum;
             break;
         case 6:
-            for (int i = 0; i < nums.size(); i++) {
+            for (uint64_t i = 0; i < nums.size(); i++) {
                 cout << (char)('a' + (nums[i] % 26));
             }
             break;
         case 7:
             visited[0] = 1;
-            for (int i = 0;; i = nums[i]) {
+            for (uint64_t i = 0;; i = nums[i]) {
                 if (i >= nums.size()) {
                     cout << "Out";
                     break;
