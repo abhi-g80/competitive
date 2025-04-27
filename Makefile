@@ -5,6 +5,7 @@ BIN_DIR := bin
 # Define compiler and flags
 CXX := g++
 CXXFLAGS := -std=c++20 -O3 -Wall
+CXXDEBUG := -std=c++20 -g  -Wall
 
 # Find all .cpp files in the src directory
 SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp)
