@@ -118,10 +118,6 @@ int main() {
          {'.','.','.','4','1','9','.','.','8'},
          {'.','.','.','.','8','.','.','7','9'}
     };
-    // clang-format on
-    cout << "isValidSudoku : " << s.isValidSudoku(board1) << '\n';
-    cout << "isValidSudoku2: " << s.isValidSudoku2(board1) << '\n';
-    // clang-format off
     vector<vector<char>> board2 {
          {'1','2','.','.','3','.','.','.','.'},
          {'4','.','.','5','.','.','.','.','.'},
@@ -133,10 +129,6 @@ int main() {
          {'.','.','.','4','1','9','.','.','8'},
          {'.','.','.','.','8','.','.','7','9'}
     };
-    // clang-format on
-    cout << "isValidSudoku : " << s.isValidSudoku(board2) << '\n';
-    cout << "isValidSudoku2: " << s.isValidSudoku2(board2) << '\n';
-    // clang-format off
     vector<vector<char>> board3 {
          {'5','3','.','.','7','.','.','.','.'},
          {'6','.','.','1','9','5','.','.','.'},
@@ -148,10 +140,6 @@ int main() {
          {'.','.','.','4','1','9','.','.','5'},
          {'.','.','.','.','8','.','.','7','9'},
     };
-    // clang-format on
-    cout << "isValidSudoku : " << s.isValidSudoku(board3) << '\n';
-    cout << "isValidSudoku2: " << s.isValidSudoku2(board3) << '\n';
-    // clang-format off
     vector<vector<char>> board4 {
         {'.','.','4','.','.','.','6','3','.'},
         {'.','.','.','.','.','.','.','.','.'},
@@ -164,17 +152,15 @@ int main() {
         {'.','.','.','.','.','.','.','.','.'}
     };
     // clang-format on
-    cout << "isValidSudoku : " << s.isValidSudoku(board4) << '\n';
-    cout << "isValidSudoku2: " << s.isValidSudoku2(board4) << '\n';
 
     auto isValidSudoku = [&](std::vector<vector<char>>& v) { return s.isValidSudoku(v); };
     auto isValidSudoku2 = [&](std::vector<vector<char>>& v) { return s.isValidSudoku2(v); };
 
     vector<TestCase> testcases = {
-        {board1, true, isValidSudoku}, {board1, true, isValidSudoku2},
-        {board2, true, isValidSudoku}, {board2, true, isValidSudoku2},
-        {board3, true, isValidSudoku}, {board3, true, isValidSudoku2},
-        {board4, true, isValidSudoku}, {board4, true, isValidSudoku2},
+        {board1, true, isValidSudoku},  {board1, true, isValidSudoku2},
+        {board2, false, isValidSudoku}, {board2, false, isValidSudoku2},
+        {board3, true, isValidSudoku},  {board3, true, isValidSudoku2},
+        {board4, false, isValidSudoku}, {board4, false, isValidSudoku2},
     };
 
     int i = 1;
