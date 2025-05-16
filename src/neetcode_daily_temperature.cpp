@@ -3,6 +3,7 @@
 #include <iostream>
 #include <stack>
 #include <vector>
+#include <cstdint>
 
 using namespace std;
 

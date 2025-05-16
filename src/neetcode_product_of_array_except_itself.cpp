@@ -1,6 +1,7 @@
 // https://neetcode.io/problems/products-of-array-discluding-self
 #include <iostream>
 #include <vector>
+#include <cstdint>
 
 using namespace std;
 

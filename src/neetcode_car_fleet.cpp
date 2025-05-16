@@ -1,6 +1,7 @@
 // https://neetcode.io/problems/car-fleet
 #include <functional>
 #include <iostream>
+#include <cstdint>
 
 using namespace std;
 

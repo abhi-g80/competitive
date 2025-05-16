@@ -1,5 +1,6 @@
 // https://open.kattis.com/problems/pyramids
 #include <iostream>
+#include <cstdint>
 
 using namespace std;
 
