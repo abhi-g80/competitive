@@ -40,6 +40,7 @@ CPP_BINARIES := $(patsubst $(SRC_DIR)/%.cpp,$(BIN_DIR)/%,$(CPP_SRC_FILES))
 GO_BINARIES := $(patsubst $(SRC_DIR)/%.go,$(BIN_DIR)/%,$(GO_SRC_FILES))
 
 # Default target
+default: all
 all: init cpp go
 
 # Language-specific targets

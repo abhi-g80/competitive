@@ -1,10 +1,10 @@
 // https://neetcode.io/problems/products-of-array-discluding-self
 #include <algorithm>
+#include <cstdint>
 #include <functional>
 #include <iostream>
 #include <unordered_map>
 #include <vector>
-#include <cstdint>
 
 using namespace std;
 

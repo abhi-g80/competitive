@@ -1,9 +1,9 @@
 // https://open.kattis.com/problems/basicprogramming1
 #include <algorithm>
+#include <cstdint>
 #include <iostream>
 #include <numeric>
 #include <vector>
-#include <cstdint>
 
 using namespace std;
 

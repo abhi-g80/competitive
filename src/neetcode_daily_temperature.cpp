@@ -1,9 +1,9 @@
 // https://neetcode.io/problems/minimum-stack
+#include <cstdint>
 #include <functional>
 #include <iostream>
 #include <stack>
 #include <vector>
-#include <cstdint>
 
 using namespace std;
 

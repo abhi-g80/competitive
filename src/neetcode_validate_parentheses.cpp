@@ -1,11 +1,11 @@
 // https://neetcode.io/problems/validate-parentheses
+#include <cstdint>
 #include <functional>
 #include <iostream>
 #include <stack>
 #include <string>
 #include <unordered_map>
 #include <vector>
-#include <cstdint>
 
 using namespace std;
 
