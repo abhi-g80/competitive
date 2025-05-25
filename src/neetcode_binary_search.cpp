@@ -51,9 +51,10 @@ int main() {
     auto search = [&](vector<int>& n, int t) { return s.search(n, t); };
 
     vector<TestCase> testcases = {
-        {vector<int>{1,4}, 1, 0, search},
-        {vector<int>{1,4}, 4, 1, search},
-        {vector<int>{-1, 0 ,3, 5}, 6, -1, search},
+        {vector<int>{1, 4}, 1, 0, search},
+        {vector<int>{1, 4}, 4, 1, search},
+        {vector<int>{-1, 0, 3, 5}, 6, -1, search},
+        {vector<int>{-1}, 6, -1, search},
     };
 
     int i = 1;
