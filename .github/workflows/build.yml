@@ -19,3 +19,15 @@ jobs:
 
     - name: Build
       run: make all
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Clean all
+      run: make clean
+
+    - name: Test
+      run: make test-neetcode-cpp
