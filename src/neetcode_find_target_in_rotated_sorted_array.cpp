@@ -1,4 +1,5 @@
 // https://neetcode.io/problems/find-target-in-rotated-sorted-array
+#include <chrono>
 #include <cstdint>
 #include <functional>
 #include <iostream>
@@ -13,7 +14,6 @@ class Solution {
         int index = -1;
         while (l <= r) {
             mid = (r - l) / 2 + l;
-            if (mid < 0 || mid > nums.size()) break;
             if (nums[mid] == target) {
                 index = mid;
                 break;
@@ -44,13 +44,25 @@ struct TestCase {
     function<int(vector<int>&, int)> func;
 
     void run(int n) {
+        using chrono::duration;
+        using chrono::duration_cast;
+        using chrono::high_resolution_clock;
+        using chrono::microseconds;
+        using chrono::milliseconds;
+
+        auto t1 = high_resolution_clock::now();
         int ans = func(nums, target);
+        auto t2 = high_resolution_clock::now();
+        duration<double, micro> time_taken = t2 - t1;
+
+        cout << boolalpha << "Testcase #" << n << ": ";
+
         if (ans != expected) {
-            cout << "Testcase #" << n << ": Failed! - expected '" << expected << "' got '" << ans
-                 << "'\n";
-            return;
-        }
-        cout << "Testcase #" << n << ": Passed!\n";
+            cout << "Failed! - expected '" << expected << "' got '" << ans << "'";
+        } else
+            cout << "Passed!";
+        cout << " Time taken: " << time_taken.count() << "ms"
+             << "\n";
     }
 };
 
