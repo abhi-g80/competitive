@@ -32,11 +32,13 @@ GOFLAGS :=
 
 # Find all source files by language
 CPP_SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp)
+CPP_SRC_FILES_N := $(wildcard $(SRC_DIR)/neetcode*.cpp)
 GO_SRC_FILES := $(wildcard $(SRC_DIR)/*.go)
 PY_SRC_FILES := $(wildcard $(SRC_DIR)/*.py)
 
 # Generate binary file names
 CPP_BINARIES := $(patsubst $(SRC_DIR)/%.cpp,$(BIN_DIR)/%,$(CPP_SRC_FILES))
+CPP_BINARIES_N := $(patsubst $(SRC_DIR)/%.cpp,$(BIN_DIR)/%,$(CPP_SRC_FILES_N))
 GO_BINARIES := $(patsubst $(SRC_DIR)/%.go,$(BIN_DIR)/%,$(GO_SRC_FILES))
 
 # Default target
@@ -81,6 +83,14 @@ test: test-cpp test-go test-py
 test-cpp:
 	@echo "\033[1;33mRunning tests for C++ binaries:\033[0m"
 	@for bin in $(CPP_BINARIES); do \
+		echo "\033[1;34mTesting $${bin}...\033[0m"; \
+		$${bin} || echo "\033[1;31mTest failed: $${bin}\033[0m"; \
+	done
+
+# Run tests for Neetcode C++ binaries
+test-neetcode-cpp: cpp
+	@echo "\033[1;33mRunning tests for Neetcode C++ binaries:\033[0m"
+	@for bin in $(CPP_BINARIES_N); do \
 		echo "\033[1;34mTesting $${bin}...\033[0m"; \
 		$${bin} || echo "\033[1;31mTest failed: $${bin}\033[0m"; \
 	done
