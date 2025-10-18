@@ -52,14 +52,14 @@ go: $(GO_BINARIES)
 # Rule to create C++ binaries from source files
 $(BIN_DIR)/%: $(SRC_DIR)/%.cpp
 	@mkdir -p $(BIN_DIR)
-	@echo -n "\033[1;36mCompiling C++ $< to $@... \033[0m"
+	@printf "\033[1;36mCompiling C++ $< to $@... \033[0m"
 	@$(CXX) $(CXXFLAGS) $(CXXINCLUDES) -o $@ $< || { echo "\033[1;31mFailed\033[0m"; exit 1; }
 	@echo "\033[1;32mDone\033[0m"
 
 # Rule to create Go binaries from source files
 $(BIN_DIR)/%: $(SRC_DIR)/%.go
 	@mkdir -p $(BIN_DIR)
-	@echo -n "\033[1;36mCompiling Go $< to $@... \033[0m"
+	@printf "\033[1;36mCompiling Go $< to $@... \033[0m"
 	@$(GO) build $(GOFLAGS) -o $@ $<
 	@echo "\033[1;32mDone\033[0m"
 
