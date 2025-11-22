@@ -34,11 +34,10 @@ struct TestCase {
     function<int(vector<int>&, int)> func;
 
     void run(int n) {
-        cout << "Testcase #: " << n;
+        cout << "Testcase #: " << n << " ";
         int ans = func(nums, target);
         if (ans != expected) {
-            cout << boolalpha << "Failed! - expected '" << expected << "' got '" << ans
-                 << "'\n";
+            cout << boolalpha << "Failed! - expected '" << expected << "' got '" << ans << "'\n";
             return;
         }
         cout << "Passed!\n";
