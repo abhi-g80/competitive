@@ -63,11 +63,13 @@ class Twitter {
 enum Commands { PostTweet, GetNewsFeed, Follow, Unfollow };
 
 struct TestCase {
-    vector<int>& commands;
-    vector<vector<int>>& values;
+    vector<int> commands;
+    vector<vector<int>> values;
     Twitter* t;
 
     void run() {
+        cout << "Running test case\n";
+        cout << "=================\n";
         assert(values.size() == commands.size());
 
         int userId, tweetId, followerId, followeeId;
@@ -105,28 +107,41 @@ struct TestCase {
                     cout << "Wrong command\n";
             }
         }
+        cout << "\n";
     }
 };
 
 int main() {
     ios::sync_with_stdio(0), cin.tie(0);
-    Twitter* t = new Twitter();
-
-    vector<int> commands = vector<int>{PostTweet,   PostTweet,   GetNewsFeed, GetNewsFeed, Follow,
-                                       GetNewsFeed, GetNewsFeed, Unfollow,    GetNewsFeed, Follow, Follow, GetNewsFeed};
-
-    vector<vector<int>> values =
-        vector<vector<int>>{vector<int>{1, 10}, vector<int>{2, 20}, vector<int>{1},
-                            vector<int>{2},     vector<int>{1, 2},  vector<int>{1},
-                            vector<int>{2},     vector<int>{1, 2},  vector<int>{1}, {1, 2}, {1, 2}, {1}};
 
     vector<TestCase> testcases = {
-        {commands, values, t},
+        {
+            .commands = {
+                PostTweet, PostTweet, GetNewsFeed, GetNewsFeed, Follow,
+                GetNewsFeed, GetNewsFeed, Unfollow, GetNewsFeed, Follow, Follow, GetNewsFeed
+            },
+            .values = {
+                {1,10}, {2,20}, {1}, {2}, {1,2},
+                {1}, {2}, {1,2}, {1}, {1,2}, {1,2}, {1}
+            },
+            .t = new Twitter()
+        },
+        {
+            .commands = {
+                PostTweet, PostTweet, PostTweet, PostTweet, PostTweet,
+                PostTweet, PostTweet, PostTweet, PostTweet, PostTweet,
+                PostTweet, GetNewsFeed
+            },
+            .values = {
+                {1,5}, {1,3}, {1,101}, {1,13}, {1,10}, {1,2},
+                {1,94}, {1,505}, {1,333}, {1,22}, {1,11},
+                {1}
+            },
+            .t = new Twitter()
+        }
     };
 
-    for (auto& x : testcases) {
-        x.run();
-    }
+    for (auto& x : testcases) x.run();
 
     return 0;
 }
