@@ -2,6 +2,7 @@
 #include <iostream>
 #include <queue>
 #include <vector>
+#include <cstdint>
 
 using namespace std;
 
@@ -18,14 +19,16 @@ class MedianFinder {
         if (left.size() == 0 && right.size() == 0) {
             left.push(num);
             curr_median = num;
-        } else if (num <= curr_median) left.push(num);
-        else right.push(num);
+        } else if (num <= curr_median)
+            left.push(num);
+        else
+            right.push(num);
 
-        while(!right.empty() && (right.size() - left.size() > 1)) {
+        while (!right.empty() && (right.size() - left.size() > 1)) {
             left.push(right.top());
             right.pop();
         }
-        while(!left.empty() && (left.size() - right.size() > 1)) {
+        while (!left.empty() && (left.size() - right.size() > 1)) {
             right.push(left.top());
             left.pop();
         }
@@ -35,13 +38,13 @@ class MedianFinder {
         //     left.pop();
         // }
 
-        if(!left.empty() && !right.empty()) curr_median = findMedian();
+        if (!left.empty() && !right.empty()) curr_median = findMedian();
 
-        while(!left.empty() && (left.top() > curr_median)) {
+        while (!left.empty() && (left.top() > curr_median)) {
             right.push(left.top());
             left.pop();
         }
-        while(!right.empty() && (right.top() < curr_median)) {
+        while (!right.empty() && (right.top() < curr_median)) {
             left.push(right.top());
             right.pop();
         }
@@ -51,15 +54,18 @@ class MedianFinder {
         // int a = left.top();
         // int b = right.top();
         // cout << a << " " <<  b << "\n";
-        // cout << "lsize " << left.size() << " rsize " << right.size() << " curr_median " << curr_median <<  "\n";
+        // cout << "lsize " << left.size() << " rsize " << right.size() << " curr_median " <<
+        // curr_median <<  "\n";
         if (left.size() == right.size()) {
             // cout << "size same " << (left.top()+right.top()) * 0.5;
             int l = left.top();
             int r = right.top();
             // cout << "ltop = " << l << " rtop " << r << "\n";
-            curr_median = (l+r)*0.5;
-        } else if (left.size() > right.size()) curr_median = left.top();
-        else curr_median = right.top();
+            curr_median = (l + r) * 0.5;
+        } else if (left.size() > right.size())
+            curr_median = left.top();
+        else
+            curr_median = right.top();
         return curr_median;
         // return 1.0;
     }
@@ -121,13 +127,15 @@ int main() {
             .m = new MedianFinder(),
         },
         {
-            .input = {AddNum, 5, AddNum, 3, FindMedian, AddNum, 7, FindMedian, AddNum, 2, FindMedian},
+            .input = {AddNum, 5, AddNum, 3, FindMedian, AddNum, 7, FindMedian, AddNum, 2,
+                      FindMedian},
             .expected = {4, 5, 4},
             .m = new MedianFinder(),
         },
         {
-            .input = {AddNum, 5, AddNum, 6, FindMedian, AddNum, 7, FindMedian, AddNum, 2, FindMedian, AddNum, 7, AddNum, 8, FindMedian},
-            .expected = {5.5, 6, 5.5,6.5},
+            .input = {AddNum, 5, AddNum, 6, FindMedian, AddNum, 7, FindMedian, AddNum, 2,
+                      FindMedian, AddNum, 7, AddNum, 8, FindMedian},
+            .expected = {5.5, 6, 5.5, 6.5},
             .m = new MedianFinder(),
         },
         {
