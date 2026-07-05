@@ -10,18 +10,19 @@ using namespace std;
 class Solution {
    public:
     int coinChange(vector<int>& coins, int amount) {
-        if(amount == 0) return 0;
-        vector<int> dp(amount+1);
+        if (amount == 0) return 0;
+        vector<int> dp(amount + 1);
         dp[0] = 0;
-        for(int i = 1; i < amount+1; i++) dp[i] = amount+1; // max out the num of ways
-        for(const int& coin: coins) if(coin <= amount) dp[coin] = 1; // make the coins 1
-        for(int i = 1; i < amount+1; i++) {
-            for(const int& coin: coins) {
-                if(i >= coin) dp[i] = min(1+dp[i-coin], dp[i]);
+        for (int i = 1; i < amount + 1; i++) dp[i] = amount + 1;  // max out the num of ways
+        for (const int& coin : coins)
+            if (coin <= amount) dp[coin] = 1;  // make the coins 1
+        for (int i = 1; i < amount + 1; i++) {
+            for (const int& coin : coins) {
+                if (i >= coin) dp[i] = min(1 + dp[i - coin], dp[i]);
             }
         }
         // cout << "\nways: " << dp[amount] << "\n";
-        return (dp[amount]>amount)? -1: dp[amount];
+        return (dp[amount] > amount) ? -1 : dp[amount];
     };
 };
 
@@ -65,10 +66,10 @@ int main() {
     auto coinChange = [&](vector<int> coins, int amount) { return s.coinChange(coins, amount); };
 
     vector<TestCase> testcases = {
-        {vector<int>{1,2,5}, 11, 3, coinChange},
+        {vector<int>{1, 2, 5}, 11, 3, coinChange},
         {vector<int>{2}, 3, -1, coinChange},
         {vector<int>{1}, 0, 0, coinChange},
-        {vector<int>{1,2,5}, 100, 20, coinChange},
+        {vector<int>{1, 2, 5}, 100, 20, coinChange},
     };
 
     int i = 1;
